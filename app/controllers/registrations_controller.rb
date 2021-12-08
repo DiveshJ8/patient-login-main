@@ -11,7 +11,8 @@ class RegistrationsController < ApplicationController
       when "staff" then redirect_to "http://clinicmanagement-dev.us-east-2.elasticbeanstalk.com/", notice: "Successfully created account"
       #when "patient" then redirect_to "http://clinicmanagement-dev.us-east-2.elasticbeanstalk.com/", notice: "Successfully created account"
       when "patient" then redirect_to "https://patient-kiosk.herokuapp.com/userdetails/", notice: "Successfully created account"
-      when "nurse" then redirect_to "https://pmp-backend-angular.herokuapp.com/nurse?nurseId={user.id}", notice: "Successfully created account"
+      when "nurse" then redirect_to "https://pmp-backend-angular.herokuapp.com/nurse?nurseId=#{@user.id}", notice: "Successfully created account"
+      when "manager" then redirect_to "https://pmp-backend-angular.herokuapp.com/manager?managerId=#{@user.id}", notice: "Successfully created account"
       else redirect_to root_path, notice: "Successfully created account"
       end 
     else
