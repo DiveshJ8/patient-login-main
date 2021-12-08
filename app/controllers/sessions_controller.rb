@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
       case user.user_type
-      when "staff" then redirect_to "http://clinicmanagement-dev.us-east-2.elasticbeanstalk.com/", notice: "Logged in successfully"
-      when "patient" then redirect_to root_path, action_name=> 'patient', params => user.id, notice: "Logged in successfully"
+      when "staff" then redirect_to "http://clinicmanagement-dev.us-east-2.elasticbeanstalk.com", notice: "Logged in successfully"
+      when "patient" then redirect_to root_path, notice: "Logged in successfully"
       when "doctor" then redirect_to "", notice: "Logged in successfully"
       end
     else
@@ -23,5 +23,5 @@ class SessionsController < ApplicationController
   end
 end
 
-#
+#/staff?staffid=#{user.id}
 
