@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       case user.user_type
       when "staff" then redirect_to "http://clinicmanagement-dev.us-east-2.elasticbeanstalk.com", notice: "Logged in successfully"
-      when "patient" then redirect_to "https://patient-kiosk.herokuapp.com/userconsent?patientId=#{@user.id}", notice: "Logged in successfully"
+      when "patient" then redirect_to "https://patient-kiosk.herokuapp.com/userconsent", notice: "Logged in successfully"
       when "nurse" then redirect_to "https://pmp-backend-angular.herokuapp.com/nurse?nurseId=#{user.id}", notice: "Logged in successfully"
       when "manager" then redirect_to "https://pmp-backend-angular.herokuapp.com/manager?managerId=#{user.id}", notice: "Logged in successfully"
       end
@@ -24,5 +24,5 @@ class SessionsController < ApplicationController
   end
 end
 
-#/staff?staffid=#{user.id}
+#?patientId=#{@user.id}
 
